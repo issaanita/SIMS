@@ -11,6 +11,9 @@ module com.example.showborderpane.sims {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
+    requires java.sql;
+
     opens com.example.showborderpane.sims to javafx.fxml;
+
     exports com.example.showborderpane.sims;
 }
