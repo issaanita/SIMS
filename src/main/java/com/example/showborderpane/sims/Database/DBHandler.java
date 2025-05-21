@@ -1,4 +1,4 @@
-package com.example.showborderpane.sims;
+package com.example.showborderpane.sims.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +26,7 @@ public class DBHandler {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public static int executeUpdate(String sql, Object... params) {
+    public static int executeDelete(String sql, Object... params) {
         try (Connection connection = getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql)) {
 
@@ -35,6 +35,23 @@ public class DBHandler {
         } catch (SQLException e) {
             System.out.println("Database error: " + e.getMessage());
             return -1;
+        }
+    }
+
+    public static boolean executeUpdate(String query, Object... params) {
+        try (Connection conn = getConnection();
+                PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            for (int i = 0; i < params.length; i++) {
+                stmt.setObject(i + 1, params[i]);
+            }
+
+            int rows = stmt.executeUpdate();
+            return rows > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

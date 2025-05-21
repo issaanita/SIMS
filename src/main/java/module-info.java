@@ -12,6 +12,7 @@ module com.example.showborderpane.sims {
     requires com.almasb.fxgl.all;
 
     requires java.sql;
+    requires javafx.graphics;
 
     opens com.example.showborderpane.sims to javafx.fxml;
 

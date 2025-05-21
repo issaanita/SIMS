@@ -1,0 +1,20 @@
+StudentView: 
+Handles the UI (buttons, fields, displaying data).
+
+StudentService: 
+Contains business logic 
+& interacts with the database.
+
+StudentController: 
+Manages user input (e.g., button clicks), 
+fetches data from the service
+& updates the view.
+
+Student.java (Main Application): 
+Glues everything together, 
+initializing the view, service and controller 
+& starting the app.
+
+StudentModel (StudentEntity): 
+Represents the data 
+(the student entity with attributes like id, name, etc.).
